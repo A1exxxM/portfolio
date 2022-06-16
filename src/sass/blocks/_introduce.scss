@@ -15,15 +15,10 @@
         z-index: 2;
         margin-top: 6px;
         @include before_circle;
-        padding-left: 10px;
+        padding-left: 15px;
     }
     &__title {
         margin-top: 6px;
-    }
-    &__line {
-        width: 60px;
-        height: 3px;
-        background-color: $main-color;
     }
     &__text {
         margin-top: 20px;
@@ -56,6 +51,7 @@
             display: block;
         }
         &__descr {
+            margin-top: 6px;
             font-weight: 500;
             font-size: 12px;
             line-height: 18px;
