@@ -16,3 +16,17 @@
     font-size: 36px;
     color: #000;
 }
+
+.section__subtitle {
+    position: relative;
+    text-align: center;
+    @include before_circle;
+    &:before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.section__title {
+    text-align: center;
+}

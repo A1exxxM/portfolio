@@ -1,17 +1,4 @@
 .resume {
-    &__subtitle {
-        position: relative;
-        text-align: center;
-        @include before_circle;
-        &:before {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-    }
-    &__title {
-        line-height: 60px;
-        text-align: center;
-    }
     &__wrapper {
         padding: 0 89px 0 65px;
         margin-top: 60px;

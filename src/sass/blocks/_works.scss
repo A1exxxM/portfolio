@@ -1,0 +1,24 @@
+.works {
+    &__wrapper {
+        margin-top: 60px;
+        display: grid;
+        grid-template: repeat(2, 280px) / repeat(4, 1fr);
+        gap: 5px;
+        .vertical {
+            grid-column: 4;
+            grid-row: 1 / 3;
+        }
+        .horizontal {
+            grid-column: 2 / 4;
+        }
+    }
+    &__item {
+        img {
+            width: 100%;
+        }
+        transition: all 0.6s;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
