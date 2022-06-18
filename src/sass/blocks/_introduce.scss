@@ -1,5 +1,5 @@
 .introduce {
-    padding: 120px;
+    padding: 120px 0;
     &__wrapper {
         display: grid;
         width: 1040px;
@@ -9,6 +9,9 @@
     }
     &__photo {
         grid-row: 1 / 3;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
     &__subtitle {
         position: relative;
