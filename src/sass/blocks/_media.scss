@@ -36,6 +36,18 @@
             gap: 20px;
         }
     }
+    .contacts {
+        padding-bottom: 90px;
+        &__wrapper {
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 300px 560px;
+            justify-content: space-between;
+        }
+        &__form {
+            grid-template: 45px 190px 45px / repeat(2, 1fr);
+        }
+    }
 }
 
 @media (max-width: 992px) {
@@ -99,6 +111,21 @@
             grid-template: repeat(2, 280px) / repeat(3, 1fr);
         }
     }
+    .contacts {
+        padding-bottom: 40px;
+        &__wrapper {
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-content: space-between;
+        }
+        &__photo {
+            display: none;
+        }
+        &__form {
+            grid-template: 45px 190px 45px / repeat(2, 1fr);
+        }
+    }
 }
 
 @media (max-width: 768px) {
@@ -133,6 +160,8 @@
         }
     }
     .skills {
+        margin-top: 0;
+        padding: 40px 0;
         &__wrapper {
             padding: 0;
             grid-template: repeat(5, 270px) / repeat(1, 270px);
@@ -154,8 +183,30 @@
         }
     }
     .location {
+        padding: 40px 0;
         iframe {
             height: 440px;
+        }
+    }
+    .contacts {
+        padding-bottom: 40px;
+        &__wrapper {
+            grid-template-columns: 1fr;
+        }
+        &__form {
+            grid-template: 45px 190px 110px / repeat(2, 1fr);
+        }
+        &__photo {
+            display: none;
+        }
+        &__triggers {
+            grid-column: 1/2;
+            display: grid;
+            grid-template: repeat(2, 45px) / 219px;
+            row-gap: 20px;
+        }
+        &__policy {
+            grid-row: 1;
         }
     }
 }
@@ -274,6 +325,42 @@
         }
         .line {
             margin-top: 15px;
+        }
+    }
+    .contacts {
+        padding-bottom: 50px;
+        &__title {
+            font-size: 24px;
+        }
+        &__wrapper {
+            grid-template-columns: 300px;
+            padding: 0;
+        }
+        &__form {
+            grid-template-columns: 1fr;
+            grid-template-rows: 45px 45px 143px 110px;
+            row-gap: 20px;
+            column-gap: 0;
+        }
+        &__triggers {
+            margin: 0 auto;
+            padding-right: 0;
+        }
+        &__policy {
+            display: grid;
+            padding: 0 20px;
+            grid-template-columns: 22px 159px;
+            justify-content: space-between;
+            align-items: center;
+            input {
+                margin-right: 0;
+            }
+        }
+        &__name {
+            grid-row: 1 / 2;
+        }
+        &__email {
+            grid-row: 2 / 3;
         }
     }
 }
