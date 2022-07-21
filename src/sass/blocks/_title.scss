@@ -1,0 +1,32 @@
+.subtitle {
+    font-weight: 700;
+    font-size: 16px;
+    color: $text-color;
+    &_fs14 {
+        font-size: 14px;
+    }
+    &_fs20 {
+        font-size: 20px;
+        line-height: 30px;
+    }
+}
+
+.title {
+    font-weight: 700;
+    font-size: 36px;
+    color: #000;
+}
+
+.section__subtitle {
+    position: relative;
+    text-align: center;
+    @include before_circle;
+    &:before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.section__title {
+    text-align: center;
+}

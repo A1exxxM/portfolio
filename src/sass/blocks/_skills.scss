@@ -1,0 +1,107 @@
+.skills {
+    margin-top: 120px;
+    padding: 0 10px 120px 10px;
+    &__wrapper {
+        margin-top: 85px;
+        display: grid;
+        grid-template: repeat(2, 270px) / repeat(4, 1fr);
+        gap: 13px;
+    }
+    &__item {
+        border: 1.8px solid $text-color;
+        padding: 30px 30px 25px 30px;
+        &-technology {
+            font-weight: 700;
+            font-size: 14px;
+            color: $text-color;
+        }
+        &-logo {
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        #html {
+            width: 50px;
+            margin-bottom: 20px;
+        }
+        #css {
+            width: 50px;
+            margin-bottom: 20px;
+        }
+        #js {
+            width: 70px;
+            margin-bottom: 20px;
+        }
+        #jquery {
+            width: 150px;
+            margin-top: 20px;
+            margin-bottom: 35px;
+        }
+        #webpack {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        #gulp {
+            width: 80px;
+            margin-bottom: 33px;
+        }
+        #sass {
+            width: 80px;
+            margin-bottom: 30px;
+        }
+        #bem {
+            width: 50px;
+            margin-bottom: 31px;
+        }
+        &-descr {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 18px;
+            color: $text-color;
+            margin-top: 15px;
+        }
+    }
+    &__scales {
+        margin-top: 120px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 45px;
+        grid-template-rows: repeat(2, 70px);
+        row-gap: 30px;
+    }
+    &__scale {
+        position: relative;
+        &-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &-subtitle {
+            position: relative;
+            @include before_circle;
+            padding-left: 14px;
+            padding-top: 8px;
+            &:before {
+                top: 0;
+            }
+        }
+        &-percent {
+            font-size: 14px;
+            color: $text-color;
+            padding-top: 8px;
+        }
+        &-line {
+            margin-top: 24px;
+            height: 14px;
+            background: #E8E4DE;
+            border-radius: 4px;
+            span {
+                display: block;
+                background: $main-color;
+                border-radius: 4px;
+                height: 14px;
+            }
+        }
+    }
+}
