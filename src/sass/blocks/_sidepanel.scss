@@ -17,6 +17,9 @@
         &:first-child {
             transform: rotate(-90deg);
         }
+        &:nth-child(2) {
+            transform: rotate(-90deg);
+        }
     }
     &__text {
         height: 150px;

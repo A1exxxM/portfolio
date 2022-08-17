@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
+  "homepage": "https://a1exxxm.github.io/portfolio/",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
@@ -38,6 +40,7 @@
     "not dead"
   ],
   "dependencies": {
-    "@babel/polyfill": "^7.12.1"
+    "@babel/polyfill": "^7.12.1",
+    "gh-pages": "^4.0.0"
   }
 }
