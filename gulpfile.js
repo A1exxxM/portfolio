@@ -11,7 +11,7 @@ gulp.task('default', gulp.series(
 
 gulp.task('prod', gulp.series(
     'clean:prod',
-    gulp.parallel('html:prod', 'sass:prod', 'images:prod', 'fonts:prod', 'files:prod', 'js:prod'),
+    gulp.parallel('html:prod', 'sass:prod', 'images:prod', 'icons:prod', 'fonts:prod', 'files:prod', 'js:prod'),
     gulp.parallel('server:prod')
 ));
 

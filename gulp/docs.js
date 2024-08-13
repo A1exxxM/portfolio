@@ -17,8 +17,6 @@ const imagemin = require('gulp-imagemin');
 const changed = require('gulp-changed');
 const htmlclean = require('gulp-htmlclean');
 const webp = require('gulp-webp');
-const webpHTML = require('gulp-webp-html');
-const webpCss = require('gulp-webp-css');
 
 
 
@@ -48,43 +46,51 @@ const serverSettings = {
 
 gulp.task('html:prod', function(){
     return gulp.src('./src/*.html')
-        .pipe(changed('./docs/'), {hasChanged: changed.compareContents})
+        .pipe(changed('./dist/'), {hasChanged: changed.compareContents})
         .pipe(plumber(plumberNotify('html')))
         .pipe(fileInclude(fileIncludeSettings))
-        .pipe(webpHTML())
         .pipe(htmlclean())
-        .pipe(gulp.dest('./docs/'))
+        .pipe(gulp.dest('./dist/'))
 })
 
 gulp.task('sass:prod', function() {
     return gulp.src('./src/scss/*.scss')
-        .pipe(changed('./docs/css/'))
-        .pipe(plumber(plumberNotify('css')))
+        .pipe(changed('./dist/css/'))
         .pipe(autoprefixer())
         .pipe(sassGlob())
-        .pipe(webpCss())
         .pipe(sass())
         .pipe(media())
         .pipe(csso())
-        .pipe(gulp.dest('./docs/css'))
+        .pipe(gulp.dest('./dist/css'))
 })
 
 gulp.task('images:prod', function(){
     return gulp.src('./src/img/**/*', {encoding: false})
-    .pipe(changed('./docs/img/'))
+    .pipe(changed('./dist/img/'))
     .pipe(webp())
-    .pipe(gulp.dest('./docs/img'))
+    .pipe(gulp.dest('./dist/img'))
     .pipe(gulp.src('./src/img/**/*', {encoding: false}))
-    .pipe(changed('./docs/img/'))
+    .pipe(changed('./dist/img/'))
     .pipe(imagemin({verbose: true}))
-    .pipe(gulp.dest('./docs/img'))
+    .pipe(gulp.dest('./dist/img'))
+})
+
+gulp.task('icons:prod', function(){
+    return gulp.src('./src/icons/**/*', {encoding: false})
+    .pipe(changed('./dist/icons/'))
+    .pipe(webp())
+    .pipe(gulp.dest('./dist/icons'))
+    .pipe(gulp.src('./src/icons/**/*', {encoding: false}))
+    .pipe(changed('./dist/icons/'))
+    .pipe(imagemin({verbose: true}))
+    .pipe(gulp.dest('./dist/icons'))
 })
 
 gulp.task('fonts:prod', function(done){
     if (fs.existsSync('./src/fonts/')) {
         return gulp.src('./src/fonts/**/*')
-            .pipe(changed('./docs/fonts/'))
-            .pipe(gulp.dest('./docs/fonts'))
+            .pipe(changed('./dist/fonts/'))
+            .pipe(gulp.dest('./dist/fonts'))
     }
     done();
 })
@@ -92,20 +98,20 @@ gulp.task('fonts:prod', function(done){
 gulp.task('files:prod', function(done){
     if (fs.existsSync('./src/files/')) {
         return gulp.src('./src/files/**/*')
-            .pipe(changed('./docs/files'))
-            .pipe(gulp.dest('./docs/files'))
+            .pipe(changed('./dist/files'))
+            .pipe(gulp.dest('./dist/files'))
     }
     done();
 })
 
 gulp.task('server:prod', function(){
-    return gulp.src('./docs/')
+    return gulp.src('./dist/')
         .pipe(server(serverSettings))
 })
 
 gulp.task('clean:prod', function(done){
-    if (fs.existsSync('./docs/')) {
-        return gulp.src('./docs/', {read: false})
+    if (fs.existsSync('./dist/')) {
+        return gulp.src('./dist/', {read: false})
             .pipe(clean());
     }
     done();
@@ -113,11 +119,11 @@ gulp.task('clean:prod', function(done){
 
 gulp.task('js:prod', function(){
     return gulp.src('./src/js/*.js')
-        .pipe(changed('./docs/js/'))
+        .pipe(changed('./dist/js/'))
         .pipe(plumber(plumberNotify('js')))
         .pipe(babel())
         .pipe(webpack(require('./../webpack.config.js')))
-        .pipe(gulp.dest('./docs/js'))
+        .pipe(gulp.dest('./dist/js'))
 });
 
 
